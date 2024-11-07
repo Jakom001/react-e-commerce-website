@@ -80,13 +80,13 @@ const Sidebar = () => {
       <section>
         <input
           type="text"
-          className="border-2 rounded px-2 sm:mb-8"
+          className="border-2 w-full rounded px-2 sm:mb-8"
           placeholder="Search Product"
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
         />
 
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center mt-3 items-center">
           <input
             type="number"
             className="border-2 mr-2 px-5 py-3 mb-3 w-full"
@@ -111,13 +111,13 @@ const Sidebar = () => {
 
         <section>
           {categories.map((category, index) => (
-            <label htmlFor="category" key={index} className="block">
+            <label htmlFor="category" key={index} className="flex mb-2">
               <input
                 type="radio"
                 name="category"
                 value={category}
                 onChange={() => handleRadioChangeCategories(category)}
-                className="mr-2 w-[16px] h=[14px] "
+                className="mr-2 w-[16px] h=[16px] "
                 checked={selectedCategory === category}
               />
               {category.toUpperCase()}

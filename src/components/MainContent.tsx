@@ -12,6 +12,7 @@ const MainContent = () => {
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [totalProducts, setTotalProducts] = useState(0);
   const itemsPerPage = 12;
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const MainContent = () => {
       .get(url)
       .then((response) => {
         setProducts(response.data.products);
+        setTotalProducts(response.data.total);
       })
       .catch((error) => {
         console.error("Error fetching the data", error);
@@ -35,7 +37,7 @@ const MainContent = () => {
   const getFilterProducts = () => {
     let filteredProducts = products;
     if (selectedCategory) {
-      filteredProducts.filter(
+     filteredProducts = filteredProducts.filter(
         (product) => product.category === selectedCategory
       );
     }
@@ -68,7 +70,6 @@ const MainContent = () => {
   };
   const filteredProducts = getFilterProducts();
 
-  const totalProducts = 100;
    
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
   const handlePageChange = (page: number) => {
@@ -94,7 +95,7 @@ const getPaginationButtons = () =>{
     return buttons
 }
   return (
-    <section className="xl:w-[55rem] lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
+    <section className="xl:w-[55rem]  lg:w-[55rem] sm:w-[40rem] xs:w-[20rem] p-5">
       <div className="mb-5">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="relative mb-5 mt-5">
