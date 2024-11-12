@@ -17,12 +17,13 @@ function App() {
             <Route path="/" element={<MainContent/>}/>
             <Route path="/product/:id" element={<ProductPage/>}/>
           </Routes>
+        </div>
 
           <div className="">
             <TopSellers/>
             <PopularBlogs/>
           </div>
-        </div>
+        
       </div>
     </Router>
   )

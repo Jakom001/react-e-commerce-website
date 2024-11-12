@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useFilter } from "./FilterContext";
 
 interface Product {
@@ -74,7 +74,7 @@ const Sidebar = () => {
     setKeyword('')
   }
   return (
-    <div className="w-64 p-5 h-screen">
+    <div className="w-72 p-2 flex justify-between items-center flex-col">
       <h1 className="text-2xl font-bold mb-10 mt-4">React Store</h1>
 
       <section>

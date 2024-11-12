@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Author{
     name: string;
@@ -10,7 +10,6 @@ const TopSellers = () => {
     const [authors, setAuthors] = useState<Author[]>([])
     useEffect(() =>{
         const fetchData = async () =>{
-
         try{
             const response = await fetch('https:randomuser.me/api/?results=5')
             const data = await response.json()
@@ -31,7 +30,7 @@ const TopSellers = () => {
         setAuthors((prevAuthor) => prevAuthor.map((author, i) => i === index ? {...author, isFollowing: !author.isFollowing}: author))
     }
     return (
-    <div className='bg-white p-5 mx-5 mt-[5rem] border w-[20rem] rounded'>
+    <div className='bg-white p-5 mx-5 mt-[5rem] border w-[15rem] rounded'>
       <h2 className='text-xl font-bold mb-5'>To Sellers</h2>
     
     <ul>
